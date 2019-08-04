@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navigationexample.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_sendMoney"
+            app:destination="@id/sendMoney"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_configStep1"
+            app:destination="@id/configStep1" />
+        <action
+            android:id="@+id/action_mainFragment_to_configStep2"
+            app:destination="@id/configStep2" >
+            <argument android:defaultValue="false"
+                android:name="show_ok_button" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoney"
+        android:name="com.example.navigationexample.SendMoney"
+        android:label="fragment_send_money"
+        tools:layout="@layout/fragment_send_money">
+        <action
+            android:id="@+id/action_sendMoney_to_warningSendMoney"
+            app:destination="@id/warningSendMoney" />
+    </fragment>
+    <fragment
+        android:id="@+id/error"
+        android:name="com.example.navigationexample.Error"
+        android:label="fragment_error"
+        tools:layout="@layout/fragment_error" />
+    <fragment
+        android:id="@+id/moneySentOk"
+        android:name="com.example.navigationexample.MoneySentOk"
+        android:label="fragment_money_sent_ok"
+        tools:layout="@layout/fragment_money_sent_ok" />
+    <fragment
+        android:id="@+id/warningSendMoney"
+        android:name="com.example.navigationexample.WarningSendMoney"
+        android:label="fragment_warning_send_money"
+        tools:layout="@layout/fragment_warning_send_money">
+        <action
+            android:id="@+id/action_warningSendMoney_to_moneySentOk"
+            app:destination="@id/moneySentOk"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_warningSendMoney_to_error"
+            app:destination="@id/error"
+            app:popUpTo="@+id/sendMoney"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/configStep1"
+        android:name="com.example.navigationexample.config.ConfigStep1"
+        android:label="fragment_config_step1"
+        tools:layout="@layout/fragment_config_step1">
+        <action
+            android:id="@+id/action_configStep1_to_configStep2"
+            app:destination="@id/configStep2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/configStep2"
+        android:name="com.example.navigationexample.config.ConfigStep2"
+        android:label="fragment_config_step2"
+        tools:layout="@layout/fragment_config_step2">
+        <action
+            android:id="@+id/action_configStep2_to_configStep3"
+            app:destination="@id/configStep3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="show_ok_button"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/configStep3"
+        android:name="com.example.navigationexample.config.ConfigStep3"
+        android:label="fragment_config_step3"
+        tools:layout="@layout/fragment_config_step3" />
+</navigation>
