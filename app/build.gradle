@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
-    def nav_version = "2.1.0-beta02"
+    def nav_version = "2.2.0-alpha01"
 
     // Java
     implementation "androidx.navigation:navigation-fragment:$nav_version"
