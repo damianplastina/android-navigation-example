@@ -14,15 +14,14 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
-public class NavigationScreenTest {
-
+public class NavigationScreenTestWithActivityScenario {
 
     @Rule
-    public ActivityScenarioRule<MainActivity> mainActivity
+    public ActivityScenarioRule<MainActivity> mainActivityScenario
             = new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
-    public void mainScreenShouldHaveFourButtons() throws Exception {
+    public void mainScreenShouldHaveFourButtons() {
 
         onView(withId(R.id.button_send_money))
                 .check(matches(isDisplayed()));
@@ -33,6 +32,5 @@ public class NavigationScreenTest {
         onView(withId(R.id.button_do_nothing_2))
                 .check(matches(isDisplayed()))
                 .check(matches(withText("do nothing")));
-
     }
 }
