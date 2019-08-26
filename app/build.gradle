@@ -23,6 +23,23 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    // robolectric
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDir sharedTestDir
+        }
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+    }
 }
 
 dependencies {
@@ -47,7 +64,17 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:3.0.0'
     testImplementation 'junit:junit:4.12'
 
+    testImplementation 'androidx.test:core:1.2.0'
+    testImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'androidx.test.ext:junit:1.1.1'
+    testImplementation 'androidx.test:runner:1.2.0'
+    testImplementation 'androidx.test:rules:1.2.0'
+    testImplementation 'org.robolectric:robolectric:4.3'
+
     /* androidTestImplementation */
+    androidTestImplementation 'org.mockito:mockito-core:3.0.0'
+    androidTestImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'androidx.test:core:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
